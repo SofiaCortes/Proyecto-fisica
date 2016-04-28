@@ -1,0 +1,19 @@
+select{
+	font-size: 1.5em;
+	margin-bottom: 30px;
+}
+
+h4{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#a{
+	width:50%;
+	margin-top:13px;
+	display:inline-block;
+}
+
+.theta{
+	margin-bottom: 30px;
+}
