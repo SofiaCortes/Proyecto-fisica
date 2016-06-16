@@ -21,12 +21,9 @@
         document.getElementById("Resultado").innerHTML = z+"º" ;
 
         dibujaMedio();
-        dibujaRayo(document.getElementById("textInput").value, document.getElementById("textInput").value);
+        dibujaRayo(document.getElementById("textInput").value, document.getElementById("Resultado").value);
     }
 
-
-
-    
     
     
     
