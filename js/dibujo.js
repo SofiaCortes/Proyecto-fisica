@@ -50,8 +50,11 @@ function dibujaMedio() {
 }
 
 function dibujaRayo(n1, n2) {
-    var n1= document.getElementById(textInput);
-    var n2= document.getElementById(Resultado);
+    var n1= parseInt(document.getElementById("textInput").value);
+    var n2= parseInt(document.getElementById("Resultado").innerHTML); // Valores en grados, los paso a radianes
+
+    n1 = n1*Math.PI /180;
+    n2 = n2*Math.PI /180;
 
     //Rayo Incidente
     var c = document.getElementById("myCanvas");
@@ -59,10 +62,7 @@ function dibujaRayo(n1, n2) {
     ctx.beginPath();
     ctx.lineWidth = 5;
     ctx.moveTo(275, 200);
-    if (n1<54)
-        ctx.lineTo(parseInt(200*Math.tan(n1)), 0);
-    else
-        ctx.lineTo(0, parseInt(275/Math.tan(n1)));
+    ctx.lineTo(0, 200 - 275 * Math.tan(n1));
     ctx.strokeStyle = '#663399';
     ctx.stroke();
 
@@ -71,7 +71,7 @@ function dibujaRayo(n1, n2) {
     ctx.beginPath();
     ctx.lineWidth = 5;
     ctx.moveTo(275, 200);  // Ver como sería el angulo con n1 y n2
-    ctx.lineTo(parseInt(200*Math.tan(n2)), 400);
+    ctx.lineTo(550, 200+275 * Math.tan(n2));
     ctx.strokeStyle = '#663399';
     ctx.stroke();
 }
