@@ -41,12 +41,14 @@ function dibujaMedio() {
 
     //Linea Normal
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1;
     ctx.setLineDash([5, 10]);
-    ctx.strokeStyle = '#000000';
+    ctx.strokeStyle = '#8b8b8b';
     ctx.moveTo(275,0);
     ctx.lineTo(275,400);
     ctx.stroke();
+
+    dibujaTexto();
 }
 
 function dibujaRayo(n1, n2) {
@@ -60,18 +62,57 @@ function dibujaRayo(n1, n2) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 0]);
+
     ctx.moveTo(275, 200);
-    ctx.lineTo(0, 200 - 275 * Math.tan(n1));
+  
+    ctx.lineTo(275 - 200 * Math.tan(n1), 0);
+
     ctx.strokeStyle = '#663399';
     ctx.stroke();
+
+
 
 
     //Rayo Refractado
     ctx.beginPath();
-    ctx.lineWidth = 5;
-    ctx.moveTo(275, 200);  // Ver como sería el angulo con n1 y n2
-    ctx.lineTo(550, 200+275 * Math.tan(n2));
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 0]);
+    ctx.moveTo(275, 200);
+    ctx.lineTo(275+200 * Math.tan(n2), 400);
     ctx.strokeStyle = '#663399';
     ctx.stroke();
+
+    dibujaTexto();
+
+}
+
+function dibujaTexto() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+
+    //n1
+    ctx.fillText("n1", 20, 190);
+
+    //n2
+    ctx.fillText("n2", 20, 225);
+
+
+    //Ley de Snell
+    ctx.fillText("Ley de Snell:", 410, 70);
+    ctx.fillText("n1 sen1 = n2 sen2", 410, 120);
+
+
+    //normalText
+    ctx.rotate(90*Math.PI/180);
+    ctx.font = "13px Arial";
+    ctx.fillStyle = "gray";
+    ctx.fillText("Normal", 30, -280);
+    ctx.rotate(-180*Math.PI/180);
+    ctx.fillText("Normal", -370, 270);
+    ctx.rotate(90*Math.PI/180);
 }
