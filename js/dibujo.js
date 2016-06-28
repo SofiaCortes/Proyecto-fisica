@@ -80,9 +80,18 @@ function dibujaRayo(n1, n2) {
     ctx.lineWidth = 2;
     ctx.setLineDash([5, 0]);
     ctx.moveTo(275, 200);
-    ctx.lineTo(275+200 * Math.tan(n2), 400);
-    ctx.strokeStyle = '#663399';
-    ctx.stroke();
+    if (n2*180/Math.PI>90) {
+        ctx.lineTo(275+200 * Math.tan(n1), 0);
+        ctx.strokeStyle = '#663399';
+        ctx.stroke();
+        anguloCritico();
+    }
+    else{
+        ctx.lineTo(275+200 * Math.tan(n2), 400);
+        ctx.strokeStyle = '#663399';
+        ctx.stroke();
+    }
+
 
     dibujaTexto();
 
@@ -115,4 +124,14 @@ function dibujaTexto() {
     ctx.rotate(-180*Math.PI/180);
     ctx.fillText("Normal", -370, 270);
     ctx.rotate(90*Math.PI/180);
+}
+
+function anguloCritico() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+
+    ctx.fillText("Has sobrepasado el angulo crítico!", 270, 300);
 }
