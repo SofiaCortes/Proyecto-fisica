@@ -24,5 +24,11 @@
         dibujaRayo(document.getElementById("textInput").value, document.getElementById("textInput").value);
     }
 
-
+    function newOption() {
+        var x = document.getElementById("mySelect1");
+        var option = document.createElement("option");
+        option.text = "Kiwi";
+        option.value = 1.5;
+        x.add(option, x.length);
+    }
 
