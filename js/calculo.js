@@ -4,7 +4,12 @@
     }
 
     function n1Update(n1) {
-        document.getElementById("n1Input").value = n1 ;
+        if(n1 == -1){
+            document.getElementById("n1Input").disabled = false;
+        }else{
+            document.getElementById("n1Input").disabled = true;
+            document.getElementById("n1Input").value = n1 ;
+        }
     }
 
     function n2Update(n2) {
@@ -13,7 +18,7 @@
 
 
     function myFunction() {
-        var x = document.getElementById("mySelect1").value;
+        var x = document.getElementById("n1Input").value;
         var y = document.getElementById("mySelect2").value;
         var ang = document.getElementById("textInput").value;
         var z = (parseFloat(x)/parseFloat(y))* parseInt(ang);
