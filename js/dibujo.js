@@ -1,6 +1,6 @@
 function dibujaMedio() {
 
-    //m1
+    <!-- Medio 1 -->
     var c = document.getElementById("myCanvas");
 
     c.width = c.width; // Forma rapida de limpiar el canvas
@@ -24,7 +24,7 @@ function dibujaMedio() {
     }
     ctx.fillRect(0, 0, 550, 200);
 
-    //m2
+    <!-- Medio 2 -->
     ctx.beginPath();
     if(document.getElementById("mySelect2").value==1)
         ctx.fillStyle = "#fffff1";
@@ -43,7 +43,7 @@ function dibujaMedio() {
     ctx.fillRect(0, 200, 550, 400);
 
 
-    //Linea del medio
+    <!-- Linea entre medios -->
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.strokeStyle = '#000000';
@@ -51,7 +51,7 @@ function dibujaMedio() {
     ctx.lineTo(550,200);
     ctx.stroke();
 
-    //Linea Normal
+    <!-- Linea Normal -->
     ctx.beginPath();
     ctx.lineWidth = 1;
     ctx.setLineDash([5, 10]);
@@ -65,12 +65,12 @@ function dibujaMedio() {
 
 function dibujaRayo(n1, n2) {
     var n1= parseInt(document.getElementById("textInput").value);
-    var n2= parseInt(document.getElementById("Resultado").innerHTML); // Valores en grados, los paso a radianes
+    var n2= parseInt(document.getElementById("Resultado").innerHTML); // Valores en grados, los pasamos a radianes
 
     n1 = n1*Math.PI /180;
     n2 = n2*Math.PI /180;
 
-    //Rayo Incidente
+    <!-- Rayo Incidente -->
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
@@ -87,7 +87,7 @@ function dibujaRayo(n1, n2) {
 
 
 
-    //Rayo Refractado
+    <!-- Rayo Refractado -->
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.setLineDash([5, 0]);
@@ -116,25 +116,25 @@ function dibujaTexto() {
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
 
-    //n1
+    <!-- texto "n1" -->
     ctx.fillText("n1", 20, 190);
 
-    //n2
+    <!-- texto "n2" -->
     ctx.fillText("n2", 20, 225);
 
 
-    //Ley de Snell
+    <!-- Ley de Snell -->
     ctx.fillText("Ley de Snell:", 410, 70);
     ctx.fillText("n1 sen1 = n2 sen2", 410, 120);
 
 
 
-    //normalText
+    <!-- texto "normal" -->
     ctx.rotate(90*Math.PI/180);
     ctx.font = "13px Arial";
     ctx.fillStyle = "gray";
     ctx.fillText("Normal", 30, -280);
-    ctx.rotate(-180*Math.PI/180);
+    ctx.rotate(-180*Math.PI/180);                   // Rotamos el texto para que acompañe linea normal
     ctx.fillText("Normal", -370, 270);
     ctx.rotate(90*Math.PI/180);
 }
