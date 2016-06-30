@@ -6,20 +6,29 @@
     function n1Update(n1) {
         if(n1 == -1){
             document.getElementById("n1Input").disabled = false;
+            ingreseIndice();
         }else{
+            borrarIngreseIndice();
             document.getElementById("n1Input").disabled = true;
             document.getElementById("n1Input").value = n1 ;
         }
     }
 
     function n2Update(n2) {
-        document.getElementById("n2Input").value = n2 ;
+        if(n2 == -1){
+            document.getElementById("n2Input").disabled = false;
+            ingreseIndice();
+        }else{
+            borrarIngreseIndice();
+            document.getElementById("n2Input").disabled = true;
+            document.getElementById("n2Input").value = n2 ;
+        }
     }
-
+    
 
     function myFunction() {
         var x = document.getElementById("n1Input").value;
-        var y = document.getElementById("mySelect2").value;
+        var y = document.getElementById("n2Input").value;
         var ang = document.getElementById("textInput").value;
         var z = (parseFloat(x)/parseFloat(y))* parseInt(ang);
         z = z.toFixed(2);
@@ -29,11 +38,10 @@
         dibujaRayo(document.getElementById("textInput").value, document.getElementById("textInput").value);
     }
 
-    function newOption() {
-        var x = document.getElementById("mySelect1");
-        var option = document.createElement("option");
-        option.text = "Kiwi";
-        option.value = 1.5;
-        x.add(option, x.length);
+    function ingreseIndice() {
+        document.getElementById('ingreseIndice').value="Ingrese nuevo índice";
     }
 
+    function borrarIngreseIndice() {
+        document.getElementById('ingreseIndice').value="";
+    }
