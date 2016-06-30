@@ -5,8 +5,9 @@
 
     function n1Update(n1) {
         if(n1 == -1){
-            document.getElementById("n1Input").disabled = false;
-            ingreseIndice();
+            document.getElementById("n1Input").disabled = false;   //Nos habilita ingresar nuevo índice
+            ingreseIndice();                                       
+            alert1();
         }else{
             borrarIngreseIndice();
             document.getElementById("n1Input").disabled = true;
@@ -18,10 +19,11 @@
         if(n2 == -1){
             document.getElementById("n2Input").disabled = false;
             ingreseIndice();
+            alert1();
         }else{
             borrarIngreseIndice();
             document.getElementById("n2Input").disabled = true;
-            document.getElementById("n2Input").value = n2 ;
+            document.getElementById("n2Input").value = n2;
         }
     }
     
@@ -44,4 +46,8 @@
 
     function borrarIngreseIndice() {
         document.getElementById('ingreseIndice').value="";
+    }
+    
+    function alert1() {
+        alert("Ingrese un número de índice de refraccíon positivo! (Recomendado: entre 1 y 10) ");
     }
