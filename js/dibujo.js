@@ -16,6 +16,12 @@ function dibujaMedio() {
         ctx.fillStyle = "#f6f66c";
     else if(document.getElementById("mySelect1").value==1.492)
         ctx.fillStyle = "#50b5d2";
+    else{
+        var grd=ctx.createLinearGradient(0,0,550,0);
+        grd.addColorStop(0,"grey");
+        grd.addColorStop(1,"white");
+        ctx.fillStyle = grd;
+    }
     ctx.fillRect(0, 0, 550, 200);
 
     //m2
@@ -28,6 +34,12 @@ function dibujaMedio() {
         ctx.fillStyle = "#f6f66c";
     else if(document.getElementById("mySelect2").value==1.492)
         ctx.fillStyle = "#50b5d2";
+    else {
+        var grd = ctx.createLinearGradient(0, 0, 550, 0);
+        grd.addColorStop(0, "white");
+        grd.addColorStop(1, "grey");
+        ctx.fillStyle = grd;
+    }
     ctx.fillRect(0, 200, 550, 400);
 
 
@@ -116,6 +128,7 @@ function dibujaTexto() {
     ctx.fillText("n1 sen1 = n2 sen2", 410, 120);
 
 
+
     //normalText
     ctx.rotate(90*Math.PI/180);
     ctx.font = "13px Arial";
@@ -134,4 +147,13 @@ function anguloCritico() {
     ctx.textAlign = "center";
 
     ctx.fillText("Has sobrepasado el angulo crítico!", 270, 300);
+
+    ctx.font = "12px Arial";
+    ctx.fillStyle = "purple";
+    var x = document.getElementById("n1Input").value;
+    var y = document.getElementById("n2Input").value;
+    var s = 90*y/x;
+    s = s.toFixed(2);
+    ctx.fillText("Angulo Crítico: "+s+"º", 410, 370);
 }
+
